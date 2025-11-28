@@ -8,6 +8,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 
+        /* Enable smooth scrolling so anchor links feel responsive */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Merriweather', serif; /* Serif for reading */
             background-color: #111111; /* Almost black */
@@ -45,10 +50,11 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col md:flex-row mx-auto max-w-6xl">
+<body class="min-h-screen flex flex-col md:flex-row mx-auto max-w-6xl relative">
 
-    <!-- Sidebar / Navigation -->
-    <aside class="w-full md:w-64 flex-shrink-0 md:h-screen md:sticky md:top-0 border-r border-gray-800 bg-[#111111] p-8 flex flex-col justify-between">
+    <!-- Sidebar / Navigation 
+         Added: z-20 (forces it to be on top) and overflow-y-auto (allows scrolling if screen is short) -->
+    <aside class="w-full md:w-64 flex-shrink-0 md:h-screen md:sticky md:top-0 border-r border-gray-800 bg-[#111111] p-8 flex flex-col justify-between overflow-y-auto z-20">
         <div>
             <div class="mb-12">
                 <h1 class="text-2xl font-bold text-white tracking-tight">Alex Burg</h1>
@@ -56,16 +62,16 @@
             </div>
 
             <nav class="space-y-4 flex flex-col">
-                <a href="#about" class="nav-item text-gray-400 hover:text-white transition-colors block">About</a>
-                <a href="#research" class="nav-item text-gray-400 hover:text-white transition-colors block">Research</a>
-                <a href="#essays" class="nav-item text-gray-400 hover:text-white transition-colors block">Essays</a>
-                <a href="#contact" class="nav-item text-gray-400 hover:text-white transition-colors block">Contact</a>
+                <a href="#about" class="nav-item text-gray-400 hover:text-white transition-colors block cursor-pointer">About</a>
+                <a href="#research" class="nav-item text-gray-400 hover:text-white transition-colors block cursor-pointer">Research</a>
+                <a href="#essays" class="nav-item text-gray-400 hover:text-white transition-colors block cursor-pointer">Essays</a>
+                <a href="#contact" class="nav-item text-gray-400 hover:text-white transition-colors block cursor-pointer">Contact</a>
             </nav>
         </div>
 
         <div class="mt-12 md:mt-0">
              <div class="flex space-x-4">
-                <a href="https://github.com/alexburg14" class="text-gray-600 hover:text-gray-300 transition-colors">
+                <a href="https://github.com/alexburg14" class="text-gray-600 hover:text-gray-300 transition-colors cursor-pointer">
                     <!-- GitHub Icon -->
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
@@ -74,10 +80,10 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 p-8 md:p-20 max-w-3xl">
+    <main class="flex-1 p-8 md:p-20 max-w-3xl z-10">
         
         <!-- About Section -->
-        <section id="about" class="mb-20">
+        <section id="about" class="mb-20 scroll-mt-10">
             <h2 class="text-3xl font-bold text-white mb-6 tracking-tight">Introduction</h2>
             <div class="prose prose-invert prose-lg text-gray-300 leading-relaxed space-y-6">
                 <p>
@@ -90,7 +96,7 @@
         </section>
 
         <!-- Research / Writing List -->
-        <section id="research" class="mb-20">
+        <section id="research" class="mb-20 scroll-mt-10">
             <h2 class="text-2xl font-bold text-white mb-8 tracking-tight border-b border-gray-800 pb-2">Research Interests</h2>
             
             <ul class="space-y-6">
@@ -114,7 +120,7 @@
         </section>
 
         <!-- Essays Section (Simple List Layout) -->
-        <section id="essays" class="mb-20">
+        <section id="essays" class="mb-20 scroll-mt-10">
             <h2 class="text-2xl font-bold text-white mb-8 tracking-tight border-b border-gray-800 pb-2">Essays in Progress</h2>
             
             <div class="space-y-8">
@@ -122,8 +128,8 @@
                 <article class="group">
                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
                         <!-- UPDATE THIS LINK BELOW -->
-                        <a href="math-essay.html" class="text-xl text-gray-200 font-semibold link-underline">
-                            The Unreasonable Effectiveness of Mathematics
+                        <a href="life_goals.html" class="text-xl text-gray-200 font-semibold link-underline cursor-pointer">
+                            My Life Philosophy
                         </a>
                         <span class="text-sm text-gray-600 font-mono mt-1 sm:mt-0">Oct 2023</span>
                     </div>
@@ -135,7 +141,7 @@
                 <!-- Essay Entry -->
                 <article class="group">
                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
-                        <a href="#" class="text-xl text-gray-200 font-semibold link-underline">
+                        <a href="#" class="text-xl text-gray-200 font-semibold link-underline cursor-pointer">
                             Notes on General Relativity
                         </a>
                         <span class="text-sm text-gray-600 font-mono mt-1 sm:mt-0">Sep 2023</span>
@@ -148,9 +154,9 @@
         </section>
 
         <!-- Footer / Contact -->
-        <section id="contact" class="pt-10 border-t border-gray-800">
+        <section id="contact" class="pt-10 border-t border-gray-800 scroll-mt-10">
             <p class="text-gray-500 text-sm">
-                Reach out via <a href="mailto:email@example.com" class="text-gray-300 hover:text-white underline">email</a> or find me on <a href="https://github.com/alexburg14" class="text-gray-300 hover:text-white underline">GitHub</a>.
+                Reach out via <a href="mailto:email@example.com" class="text-gray-300 hover:text-white underline cursor-pointer">email</a> or find me on <a href="https://github.com/alexburg14" class="text-gray-300 hover:text-white underline cursor-pointer">GitHub</a>.
             </p>
         </section>
 
